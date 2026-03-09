@@ -11,12 +11,12 @@ namespace ShopContent.Context
         public ItemsContext(bool save = false)
         {
             if (save) Save(true);
-            Caregory = new Categorys();
+            Category = new Categorys();
         }
         public static ObservableCollection<ItemsContext> AllItems()
         {
             ObservableCollection<ItemsContext> allItems = new ObservableCollection<ItemsContext>();
-            ObservableCollection<CategorysContext> allCategorys = CategorysContext.AllCategorys();
+            ObservableCollection<CategorysContext> allCategorys = CategorysContext.AllCategories();
             SqlConnection connection;
             SqlDataReader dataItems = Connection.Query("SELECT * FROM [dbo].[Items]", out connection);
             while (dataItems.Read())
@@ -76,13 +76,23 @@ namespace ShopContent.Context
                 $"Id = {this.Id}", out connection);
             Connection.CloseConnection(connection);
         }
+        public RelayCommand OnEdit
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    MainWindow.init.frame.Navigate(new View.Add(this));
+                });
+            }
+        }
         public RelayCommand Onsave
         {
             get
             {
-                return new RelayCommand(object =>
+                return new RelayCommand(obj =>
                 {
-                    Category = CategorysContext.AllCategorys().where(x => x.Id == this.Category.Id).First();
+                    Category = CategorysContext.AllCategories().Where(x => x.Id == this.Category.Id).First();
 
                     Save();
                 });
@@ -92,12 +102,14 @@ namespace ShopContent.Context
         {
             get
             {
-                return new RelayCommand(object =>
+                return new RelayCommand(obj =>
                 {
                     Delete();
                     (MainWindow.init.Main.DataContext as ViewModell.VMItems).Items.Remove(this);
                 });
             }
         }
+
+        public bool New { get; private set; }
     }
 }

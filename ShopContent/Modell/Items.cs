@@ -49,9 +49,9 @@ namespace ShopContent.Modell
             }
         }
 
-        private Categorys category;
+        public Categorys category;
 
-        private Categorys Category
+        public Categorys Category
         {
             get { return category; }
             set

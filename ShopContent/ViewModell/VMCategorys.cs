@@ -1,24 +1,29 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Contexts;
 
-namespace ShopContent_Ohschepkov.ViewModel
+namespace ShopContent.ViewModell
 {
     public class VMCategorys : INotifyPropertyChanged
     {
-        public ObservableCollection<Context.CategorysContext> Categorys { get; set; }
-
-        /// <summary> Конструктор модели представления </summary>
-        public VMCategorys()
+        private ObservableCollection<Context.CategorysContext> _categories;
+        public ObservableCollection<Context.CategorysContext> Categories
         {
-            Categorys = Context.CategorysContext.AllCategorys();
+            get { return _categories; }
+            set
+            {
+                _categories = value;
+                OnPropertyChanged("Categories");
+            }
         }
 
-        /// <summary> Событие изменения свойства </summary>
+        public VMCategorys()
+        {
+            Categories = Context.CategorysContext.AllCategories();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary> Метод сообщающий системе об изменении свойств </summary>
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
