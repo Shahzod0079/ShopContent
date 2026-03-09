@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace ShopContent_Oshchepkov.Classes
+namespace ShopContent.Classes
 {
     public class Connection
     {

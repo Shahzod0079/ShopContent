@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ShopContent.Classes;
 using ShopContent.Modell;
-using ShopContent_Oshchepkov.Classes;
 
 namespace ShopContent.Context
 {
-    internal class ItemsContext : Items
+    public class ItemsContext : Items
     {
         public ItemsContext(bool save = false)
         {

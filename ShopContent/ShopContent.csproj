@@ -64,6 +64,11 @@
     <Compile Include="Context\ItemsContext.cs" />
     <Compile Include="Modell\Categorys.cs" />
     <Compile Include="Modell\Items.cs" />
+    <Compile Include="ViewModell\VMCategorys.cs" />
+    <Compile Include="ViewModell\VMItems.cs" />
+    <Compile Include="View\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
@@ -82,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Items\Item.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,9 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModell\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\ic_shop.png" />
   </ItemGroup>

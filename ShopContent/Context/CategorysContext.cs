@@ -1,5 +1,5 @@
 ﻿using ShopContent.Modell;
-using ShopContent_Oshchepkov.Classes;
+using ShopContent.Classes;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 
@@ -7,7 +7,6 @@ namespace ShopContent.Context
 {
     public class CategorysContext : Categorys
     {
-        /// <summary> Метод загрузки данных из БД </summary>
         public static ObservableCollection<CategorysContext> AllCategories()
         {
             ObservableCollection<CategorysContext> allCategories = new ObservableCollection<CategorysContext>();
