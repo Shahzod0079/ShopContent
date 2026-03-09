@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ShopContent.Modell
 {
-    internal class Categorys : INotifyPropertyChanged
+    public class Categorys : INotifyPropertyChanged
     {
         private int id;
 
