@@ -19,6 +19,11 @@ namespace ShopContent
         }
 
         private void OpenIndex(object sender, MouseButtonEventArgs e) =>
-        frame.Navigate(Main); 
+        frame.Navigate(Main);
+
+        private void frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
